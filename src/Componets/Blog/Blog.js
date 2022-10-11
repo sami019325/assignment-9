@@ -15,6 +15,9 @@ const Blog = () => {
                 <h1>What is the useRef hook?</h1>
                 <p>
                     'useRef hook' is part of the React Hooks API and it is a function which takes a maximum of one argument and returns an Object. The returned object has a property called current whose value is the argument passed to useRef. If you invoke it without an argument, the returned object's current property is set to undefined. The code below illustrates how to invoke the useRef hook in functional components.</p>
+                <div>
+
+                </div>
             </div>
         </div>
     );
