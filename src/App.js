@@ -1,10 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
+import Rout from './Componets/Rout';
+import { Children } from 'react';
+import Navbar from './Componets/NavBar/Navbar';
+import Topic from './Componets/Topic/Topic';
+import Quiz from './Componets/Quiz/Quiz';
+const router = createBrowserRouter(
+  [{
+    path: '/', element: <Rout />,
+    children: [
+      {
+        path: '/',
+        loader: async () => fetch('https://openapi.programming-hero.com/api/quiz'),
+        element: <Topic />
+      },
+      {
+        path: '/quiz',
+        loader: async () => fetch('https://openapi.programming-hero.com/api/quiz/1'),
+        element: <Quiz />
+      }
+    ]
+  }]
+)
 function App() {
   return (
-    <div className="App">
-      <h1>Samoi</h1>
+    <div className="">
+      <RouterProvider router={router}></RouterProvider>
+
     </div>
   );
 }

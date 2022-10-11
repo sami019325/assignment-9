@@ -1,0 +1,30 @@
+.nav_Container {
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_Container div {
+    margin: 5px 20px;
+}
+
+.nav_Bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_Bar a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    margin: 20px 10px;
+    font-weight: 900;
+}
+
+.nav_Bar a:hover {
+    color: burlywood;
+}
