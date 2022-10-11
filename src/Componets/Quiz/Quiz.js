@@ -2,7 +2,11 @@ import eyeSVG from './eye-solid.svg'
 import React, { createElement, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './Quiz.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Quiz = () => {
+    const notify = () => toast("Good job!");
+
     const [ansTotal, setAns] = useState(0)
     const quiz = useLoaderData()
     console.log(quiz.data.questions);
@@ -31,7 +35,8 @@ const Quiz = () => {
                             console.log('sami:', id, ans, correctAns,)
                             if (ans === correctAns) {
                                 document.getElementById(id).style.background = 'aquamarine'
-                                setAns(ansTotal + 1)
+                                setAns(ansTotal + 1);
+                                notify()
                             }
                             else {
                                 document.getElementById(id).style.background = 'rgb(252, 160, 144)'
@@ -57,6 +62,12 @@ const Quiz = () => {
                         )
                     })
                 }
+            </div>
+
+            <div>
+                <button onClick={notify}>Notify!</button>
+                <ToastContainer />
+
             </div>
         </div>
     );
