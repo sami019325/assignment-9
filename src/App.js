@@ -6,6 +6,8 @@ import { Children } from 'react';
 import Navbar from './Componets/NavBar/Navbar';
 import Topic from './Componets/Topic/Topic';
 import Quiz from './Componets/Quiz/Quiz';
+import NoPage from './Componets/NoPage/NoPage';
+import Blog from './Componets/Blog/Blog';
 const router = createBrowserRouter(
   [{
     path: '/', element: <Rout />,
@@ -19,7 +21,16 @@ const router = createBrowserRouter(
         path: '/quiz',
         loader: async () => fetch('https://openapi.programming-hero.com/api/quiz/1'),
         element: <Quiz />
+      },
+      {
+        path: '*',
+        element: <NoPage />,
+      },
+      {
+        path: '/blog',
+        element: <Blog />
       }
+
     ]
   }]
 )
@@ -27,7 +38,6 @@ function App() {
   return (
     <div className="">
       <RouterProvider router={router}></RouterProvider>
-
     </div>
   );
 }

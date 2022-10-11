@@ -1,5 +1,6 @@
 .quiz_Container {
     margin: 10px;
+    margin-top: 120px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;

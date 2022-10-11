@@ -3,7 +3,7 @@ import React, { createElement, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './Quiz.css'
 const Quiz = () => {
-
+    const [ansTotal, setAns] = useState(0)
     const quiz = useLoaderData()
     console.log(quiz.data.questions);
     const questions = quiz.data.questions;
@@ -15,7 +15,7 @@ const Quiz = () => {
                     <h1>{quiz.data.name} Quiz</h1>
                 </div>
                 <div>
-                    <h4> Right answer 10 from 20</h4>
+                    <h4> Right answer {ansTotal} from {quiz.data.questions.length}</h4>
                 </div>
             </div>
             <div className='quiz_Question_box'>
@@ -31,6 +31,7 @@ const Quiz = () => {
                             console.log('sami:', id, ans, correctAns,)
                             if (ans === correctAns) {
                                 document.getElementById(id).style.background = 'aquamarine'
+                                setAns(ansTotal + 1)
                             }
                             else {
                                 document.getElementById(id).style.background = 'rgb(252, 160, 144)'
